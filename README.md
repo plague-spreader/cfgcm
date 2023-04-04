@@ -48,7 +48,7 @@ you need to open a terminal and then open the SSH client
 
 ## How to install
 
-If you want to install this program as your local user type:
+If you want to do an user-local installation type:
 
     make localinstall
 
