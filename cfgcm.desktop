@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=CfgCM
+Exec=/home/user/.local/bin/cfgcm.sh %f
+Terminal=true
+NoDisplay=true
+StartupNotify=true
+MimeType=x-scheme-handler/cfgcm;
+Type=Application
