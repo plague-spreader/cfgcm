@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=CfgCM
-Exec=/home/user/.local/bin/cfgcm.sh %f
+Exec=cfgcm.sh %f
 Terminal=true
 NoDisplay=true
 StartupNotify=true
