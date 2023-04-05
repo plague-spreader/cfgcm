@@ -1,0 +1,6 @@
+.PHONY: all
+
+all:
+	install -m644 cfgcm.desktop ${target_dir}/share/applications/
+	install -m755 cfgcm.sh ${target_dir}/bin/
+	xdg-settings set default-url-scheme-handler cfgcm cfgcm.desktop

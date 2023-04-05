@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 SUCCESS=0
 INVALID_ARGS=1
@@ -39,6 +39,6 @@ path=$url_to_parse
 
 [ "$path" ] || error_no_path
 
-"${XDG_DATA_HOME:-/home/user/.local/share}/cfgcm/$path/connect"
+"${XDG_DATA_HOME:-$HOME/.local/share}/cfgcm/$path/connect"
 
 exit $SUCCESS # to avoid opening of x-www-browser
