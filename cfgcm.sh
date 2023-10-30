@@ -7,7 +7,7 @@ NO_PATH=3
 INVALID_PATH=4
 
 CFG_CM="${XDG_DATA_HOME:-$HOME/.local/share}/cfgcm/"
-CFGCM_FINDER="${FINDER_PROGRAM:-fzf}"
+CFGCM_FINDER="${CFGCM_FINDER:-fzf}"
 
 function error_no_path() {
 	>&2 printf "Url does not have a path\n"
