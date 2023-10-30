@@ -19,14 +19,17 @@ All the connections definitions resides in the local machine, so any authority
 component in the URL will be discarded. Maybe there is an use case for
 connections defined on a remote machine? Let me know if you have any ideas.
 
-This repository also provides two front-ends: a curses and a Tk-GUI application
-
 ## How to use
 
 The URL scheme is: `cfgcm:<path>`
 
 By typing `xdg-open cfgcm:<path>` the following program will be executed:
 `${XDG_DATA_HOME:-~/.local/share}/cfgcm/<path>/connect`
+
+If you launch `cfgcm.sh` by itself it will find each connection script defined
+within `${XDG_DATA_HOME:-~/.local/share}/cfgcm/` and lets you select it via the
+`$CFGCM_FINDER` environment variable. If that variable is not defined the `fzf`
+program will be used.
 
 ### Example
 
