@@ -26,10 +26,11 @@ The URL scheme is: `cfgcm:<path>`
 By typing `xdg-open cfgcm:<path>` the following program will be executed:
 `${XDG_DATA_HOME:-~/.local/share}/cfgcm/<path>/connect`
 
-If you launch `cfgcm.sh` by itself it will find each connection script defined
-within `${XDG_DATA_HOME:-~/.local/share}/cfgcm/` and lets you select it via the
-`$CFGCM_FINDER` environment variable. If that variable is not defined the `fzf`
-program will be used.
+Also there is a shorthand to avoid to write the whole path (requires `fzf` as a
+requirement though): by executing `cfgcm.sh` a fzf prompt will be shown with
+all the defined connections. Moreover, if in the cfgcm path a `description`
+file is present, it is possible to map a description to each of the connections
+for a more convenient way of visualizing everything.
 
 ### Example
 
@@ -45,6 +46,15 @@ with the following content:
 
 Then you can connect by executing `xdg-open cfgcm:cisco/routers/router-1` from
 a terminal window.
+
+Also, by creating a `~/.local/share/cfgcm/cisco/routers/router-1/description`
+file with the following content:
+
+    ssh://router1.mycompany.com - Cisco Router in main hall
+
+fzf will show the description rather than `cisco/routers/router-1` which could
+be more convenient (or maybe not? in that case do not create a description for
+that entry)
 
 If you want to use this connection by clicking on the link in a GUI application
 you need to open a terminal and then open the SSH client
