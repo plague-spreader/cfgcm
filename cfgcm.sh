@@ -1,17 +1,17 @@
 #!/bin/sh
 
-SUCCESS=0
-INVALID_ARGS=1
-INVALID_SCHEME=2
-NO_PATH=3
-INVALID_PATH=4
+EXIT_SUCCESS=0
+EXIT_INVALID_ARGS=1
+EXIT_INVALID_SCHEME=2
+EXIT_NO_PATH=3
+EXIT_INVALID_PATH=4
 
 CFG_CM="${XDG_DATA_HOME:-$HOME/.local/share}/cfgcm/"
 CFGCM_SORT_CMD="${CFGCM_SORT_CMD:-cat}"
 
 error_no_path() {
 	>&2 printf "Url does not have a path\n"
-	exit $NO_PATH
+	exit $EXIT_NO_PATH
 }
 
 parse_description() {
@@ -36,13 +36,13 @@ select_cfgcm_url() {
 
 url_to_parse="$1"
 [ "$url_to_parse" ] || {
-	url_to_parse=$(select_cfgcm_url) || exit $SUCCESS
+	url_to_parse=$(select_cfgcm_url) || exit $EXIT_SUCCESS
 	url_to_parse="cfgcm:./$url_to_parse"
 }
 
 [[ "$url_to_parse" =~ ^cfgcm:.* ]] || {
 	>&2 printf "Url must begin with \"cfgcm:\"\n"
-	exit $INVALID_SCHEME
+	exit $EXIT_INVALID_SCHEME
 }
 
 url_to_parse="${url_to_parse#cfgcm:}"
@@ -65,4 +65,4 @@ path=$url_to_parse
 
 "${XDG_DATA_HOME:-$HOME/.local/share}/cfgcm/$path/connect"
 
-exit $SUCCESS # to avoid opening of x-www-browser
+exit $EXIT_SUCCESS # to avoid opening of x-www-browser
