@@ -32,6 +32,9 @@ all the defined connections. Moreover, if in the cfgcm path a `description`
 file is present, it is possible to map a description to each of the connections
 for a more convenient way of visualizing everything.
 
+You can set `CFGCM_SORT_CMD` environment variable to sort the connection
+entries as wanted.
+
 ### Example
 
 Let's say you want to connect to a Cisco router with SSH and you also want a

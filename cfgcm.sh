@@ -7,6 +7,7 @@ NO_PATH=3
 INVALID_PATH=4
 
 CFG_CM="${XDG_DATA_HOME:-$HOME/.local/share}/cfgcm/"
+CFGCM_SORT_CMD="${CFGCM_SORT_CMD:-cat}"
 
 error_no_path() {
 	>&2 printf "Url does not have a path\n"
@@ -28,6 +29,7 @@ select_cfgcm_url() {
 				printf "${cfgcm_url}\t${cfgcm_url}\n"
 			fi
 		done |
+		$CFGCM_SORT_CMD |
 		fzf -d '\t' --with-nth=2.. |
 		cut -d$'\t' -f1
 }
